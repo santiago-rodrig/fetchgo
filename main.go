@@ -18,6 +18,7 @@ func main() {
 		}
 
 		defer resp.Body.Close()
+		fmt.Fprintf(os.Stdout, "HTTP Status: %s\n\n", resp.Status)
 		_, err = io.Copy(os.Stdout, resp.Body)
 
 		if err != nil {
